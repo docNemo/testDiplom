@@ -7,20 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="input" HorizontalAlignment="Left" Margin="118,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="626,37,0,0" VerticalAlignment="Top" Height="43" Width="105" Click="Button_Click"/>
-        <DataGrid x:Name="results" Margin="0,217,0,0">
+        <TextBox x:Name="input" HorizontalAlignment="Left" Margin="118,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483" TextChanged="TextBox_TextChanged" Height="33" FontSize="14" FontFamily="Times New Roman"/>
+        <Button Content="Выполнить" HorizontalAlignment="Left" Margin="626,37,0,0" VerticalAlignment="Top" Height="33" Width="105" Click="Button_Click" FontFamily="Times New Roman" FontSize="14"/>
+        <DataGrid x:Name="results" Margin="0,217,0,0" FontSize="14" FontFamily="Times New Roman">
             AutoGenerateColumns="False"
-                DockPanel.Dock="Top"
             <DataGrid.Columns>
-                <DataGridTextColumn
-                        Width="*"
+                <DataGridHyperlinkColumn
+                    Width="*"
                         Header="Вывод"
                         Binding="{Binding Path=Value}"
-                        IsReadOnly="True" />
+                        IsReadOnly="True">
+                </DataGridHyperlinkColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="output" HorizontalAlignment="Left" Margin="118,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483"/>
+        <TextBox x:Name="output" HorizontalAlignment="Left" Margin="118,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483" Height="109" FontFamily="Times New Roman" FontSize="14"/>
 
     </Grid>
 </Window>

@@ -92,19 +92,19 @@ namespace testDiplom
 
         private String createHeader(List<String> values)
         {
-            return "select distinct ?var1 where { values ?var2 " + createValues(values) + " . ?var1 rdf:type ?var2.";
+            return "select distinct ?var1\nwhere {\n    values ?var2 " + createValues(values) + " .\n    ?var1 rdf:type ?var2 .\n";
         }
 
         //todo добавить разницу значений числовых, даты и типа dbr:Canada
         private String createEqTriple(List<String> values, int numPredicate, String valuePredicate)
         {
-            return " values ?p" + numPredicate.ToString() + " " + createValues(values) + " . ?var1 ?p" + numPredicate.ToString() + " " + valuePredicate + ".";
+            return "    values ?p" + numPredicate.ToString() + " " + createValues(values) + " .\n    ?var1 ?p" + numPredicate.ToString() + " " + valuePredicate + " .\n";
         }
 
         private String createCompareTriple(List<String> values, int numPredicate, String comparisonSign, String comparisonValue)//TODO  
         {
-            return " values ?p" + numPredicate.ToString() + " " + createValues(values) + " . ?var1 ?p" + numPredicate.ToString() + " ?var" + numPredicate.ToString() + "."
-                + "filter (?var" + numPredicate.ToString() + " " + comparisonSign + " " + comparisonValue + ")";
+            return "    values ?p" + numPredicate.ToString() + " " + createValues(values) + " .\n    ?var1 ?p" + numPredicate.ToString() + " ?var" + numPredicate.ToString() + " .\n"
+                + "    filter (?var" + numPredicate.ToString() + " " + comparisonSign + " " + comparisonValue + ") . \n";
         }
 
         private List<String> translate(diplomContext context, String word)

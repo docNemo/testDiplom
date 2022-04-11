@@ -6,11 +6,21 @@
         xmlns:local="clr-namespace:testDiplom"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,119,0">
+    <Grid>
         <TextBox x:Name="input" HorizontalAlignment="Left" Margin="118,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483" TextChanged="TextBox_TextChanged"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="626,37,0,0" VerticalAlignment="Top" Height="43" Width="105" Click="Button_Click"/>
-        <DataGrid x:Name="results" Margin="0,217,-118,0"/>
-        <TextBox x:Name="output" HorizontalAlignment="Left" Margin="118,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483" TextChanged="TextBox_TextChanged"/>
+        <DataGrid x:Name="results" Margin="0,217,0,0">
+            AutoGenerateColumns="False"
+                DockPanel.Dock="Top"
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                        Width="*"
+                        Header="Вывод"
+                        Binding="{Binding Path=Value}"
+                        IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="output" HorizontalAlignment="Left" Margin="118,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483"/>
 
     </Grid>
 </Window>

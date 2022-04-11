@@ -76,7 +76,13 @@ namespace testDiplom
 
             output.Text = querySparql;
 
-            results.ItemsSource = runQuery(querySparql);
+            var res = runQuery(querySparql);
+
+            foreach (String str in res) {
+                results.Items.Add(new {  Value = str });
+            }
+
+            
         }
 
         private String createValues(List<String> values)
